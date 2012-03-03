@@ -1,0 +1,8 @@
+#!/bin/bash
+# iPad Retina Simulator script by Ryan Petrich
+SELF=$(python -c "import os,sys; print os.path.realpath(sys.argv[1])" "$0")
+if [ -x /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app/Contents/MacOS/iPhone\ Simulator ]; then
+	DYLD_INSERT_LIBRARIES="$SELF.dylib" /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app/Contents/MacOS/iPhone\ Simulator
+else
+	DYLD_INSERT_LIBRARIES="$SELF.dylib" /Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app/Contents/MacOS/iPhone\ Simulator
+fi
